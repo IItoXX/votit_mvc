@@ -14,7 +14,7 @@
 ## A faire
 * Créer une page about
     * Modifier PageController
-    * Créer le template dans le dossier /templates/page
+    * Créer le template about.php dans le dossier /templates/page
     * Modifier le menu dans header.php (en haut)
 * Modifier la page d'accueil pour afficher dynamiquement les trois derniers sondages
     * Modifier PageController méthode home
