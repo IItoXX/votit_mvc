@@ -25,7 +25,7 @@
 * Gérer la page Liste des sondages
     * Modifier PollController méthode list
     * Modifier templates/poll/list.php pour gérer la boucle foreach
-* Gérer le vote
+* Gérer le vote (utilisateur connecté)
     * Modifier PollController pour ajouter une méthode vote
     * La méthode doit rediriger vers login si l'utilisateur n'est pas connecté
     * Appeler la méthode removeVotesForUserAndPoll
