@@ -1,6 +1,6 @@
 <?php require __DIR__ . '/../header.php'; ?>
 <h2>Créer un sondage</h2>
-<form method="post" action="/poll/create">
+<form method="post" action="/poll/create/post">
   <div class="mb-3">
     <label for="title" class="form-label">Titre</label>
     <input type="text" class="form-control" id="title" name="title" required>
@@ -12,10 +12,10 @@
   <div class="mb-3">
     <label for="category_id" class="form-label">Catégorie</label>
     <select class="form-control" id="category_id" name="category_id" required>
-      <option value="1">front-end</option>
-      <option value="2">back-end</option>
-      <option value="3">devops</option>
-      <option value="4">UX/UI</option>
+      <?php foreach ($categories as $cat)
+      { ?>
+        <option value="<?= $cat->getId() ?>"><?= htmlspecialchars($cat->getName()) ?></option>
+      <?php } ?>
     </select>
   </div>
   <div class="mb-3">

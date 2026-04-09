@@ -2,7 +2,9 @@
     $mainMenu = [
         '/' => 'Accueil',
         '/poll/list' => 'Listes des sondages',
+        '/categories' => 'Catégories',
         '/poll/create' => 'Créer un sondage',
+        '/about' => 'A propos',
     ];
 ?>
 
@@ -25,18 +27,23 @@
         </div>
 
         <ul class="nav nav-pills">
-            <?php foreach ($mainMenu as $page => $titre) { ?>
+            <?php foreach ($mainMenu as $page => $titre)
+            { ?>
                 <li class="nav-item">
-                    <a href="<?= $page; ?>" class="nav-link<?php if ($_SERVER['REQUEST_URI'] === $page) { echo ' active'; } ?>"><?= $titre; ?></a>
+                    <a href="<?= $page; ?>" class="nav-link<?php if ($_SERVER['REQUEST_URI'] === $page)
+                    { echo ' active'; } ?>"><?= $titre; ?></a>
                 </li>
-            <?php } ?>  
+            <?php } ?>
         </ul>
 
         <div class="col-md-3 text-end">
-            <?php if (!empty($_SESSION['user'])) { ?>
+            <?php if (!empty($_SESSION['user']))
+            { ?>
                 <span class="me-2">Bienvenue, <?= htmlspecialchars($_SESSION['user']->getNickname() ?? $_SESSION['user']->getEmail()) ?></span>
                 <a href="/logout" class="btn btn-primary">Déconnexion</a>
-            <?php } else { ?>
+            <?php }
+            else
+            { ?>
                 <a href="/login" class="btn btn-outline-primary me-2">Connexion</a>
                 <a href="/register" class="btn btn-primary">Inscription</a>
             <?php } ?>

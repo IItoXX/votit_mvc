@@ -8,9 +8,10 @@
   <div class="col-10 col-sm-8 col-lg-6">
     <h2>Résultats</h2>
     <div class="results">
-      <?php 
+      <?php
       $totalVotes = array_sum(array_column($results, 'count'));
-      foreach ($items as $index => $item) {
+      foreach ($items as $index => $item)
+      {
         $votes = $results[$item->getId()]['count'] ?? 0;
         $percent = $totalVotes ? ($votes / $totalVotes * 100) : 0;
       ?>
@@ -23,16 +24,19 @@
       <?php } ?>
     </div>
     <div class="mt-5">
-      <?php if (!empty($_SESSION['user'])) { ?>
+      <?php if (!empty($_SESSION['user']))
+      { ?>
         <form method="post" action="/poll/vote/?id=<?= $poll->getId() ?>">
           <h2>Votez pour ce sondage :</h2>
           <div class="btn-group" role="group" aria-label="Choix du sondage">
-            <?php foreach ($items as $item) { ?>
+            <?php foreach ($items as $item)
+            { ?>
               <input type="radio" class="btn-check" id="btncheck<?= $item->getId() ?>" autocomplete="off" value="<?= $item->getId() ?>" name="option" required>
               <label class="btn btn-outline-primary" for="btncheck<?= $item->getId() ?>"><?= htmlspecialchars($item->getName()) ?></label>
             <?php } ?>
           </div>
-          <?php if (!empty($error)) { ?>
+          <?php if (!empty($error))
+          { ?>
             <div class="alert alert-danger mt-2" role="alert">
               <?= htmlspecialchars($error) ?>
             </div>
@@ -41,7 +45,9 @@
             <input type="submit" class="btn btn-primary" value="Voter">
           </div>
         </form>
-      <?php } else { ?>
+      <?php }
+      else
+      { ?>
         <div class="alert alert-warning mt-3">
           Vous devez être connecté pour voter.
         </div>
@@ -49,5 +55,6 @@
     </div>
   </div>
 </div>
-<a href="/" class="btn btn-secondary mt-4">Retour à la liste</a>
+
+<a href="/poll/list" class="btn btn-secondary mt-4">Retour à la liste</a>
 <?php require __DIR__ . '/../footer.php'; ?>

@@ -2,13 +2,15 @@
 <div class="row justify-content-center">
   <div class="col-md-6">
     <h2 class="mb-4">Inscription</h2>
-    <?php if (!empty($errors)): ?>
+    <?php if (!empty($errors))
+    { ?>
       <div class="alert alert-danger">
-        <?php foreach ($errors as $error): ?>
+        <?php foreach ($errors as $error)
+        { ?>
           <p> <?= htmlspecialchars($error) ?> </p>
-        <?php endforeach; ?>
+        <?php } ?>
       </div>
-    <?php endif; ?>
+    <?php } ?>
     <form method="post" action="/register">
       <div class="mb-3">
         <label for="nickname" class="form-label">Nom d'utilisateur</label>

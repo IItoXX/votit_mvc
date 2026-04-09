@@ -2,9 +2,10 @@
 <div class="row justify-content-center">
   <div class="col-md-6">
     <h2 class="mb-4">Connexion</h2>
-    <?php if (!empty($error)): ?>
+    <?php if (!empty($error))
+    { ?>
       <div class="alert alert-danger"> <?= htmlspecialchars($error) ?> </div>
-    <?php endif; ?>
+    <?php } ?>
     <form method="post" action="/login">
       <div class="mb-3">
         <label for="nickname" class="form-label">Nom d'utilisateur</label>
